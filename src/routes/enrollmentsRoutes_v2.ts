@@ -181,9 +181,10 @@ router.delete(
         })
       }
 
-      const foundIndex = enrollments.findIndex(
-        (std) => std.studentId === body.studentId
+      const foundIndex = students.findIndex(
+        (std) => std.studentId === req.params.studentId
       );
+      students[foundIndex]?.courses?.push(body.courseId);
 
       if (foundIndex === -1) {
         return res.status(404).json({

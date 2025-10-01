@@ -7,12 +7,10 @@ import {
 
 import type { Student, Course } from "../libs/types.js";
 
-// import database
 import { courses } from "../db/db.js";
 
 const router = Router();
 
-// GET /api/v2/courses
 router.get("/", (req: Request, res: Response) => {
   try {
     return res.json({
@@ -28,7 +26,6 @@ router.get("/", (req: Request, res: Response) => {
   }
 });
 
-// GET /api/v2/courses/{courseId}
 router.get("/:courseId", (req: Request, res: Response) => {
   try {
     const courseId = req.params.courseId;
@@ -65,8 +62,6 @@ router.get("/:courseId", (req: Request, res: Response) => {
   }
 });
 
-// POST /api/v2/courses, body = {new course data}
-// add a new course
 router.post("/", async (req: Request, res: Response) => {
   return res.status(500).json({
     success: false,
@@ -74,8 +69,6 @@ router.post("/", async (req: Request, res: Response) => {
   });
 });
 
-// PUT /api/v2/courses, body = {courseId}
-// Update specified courses
 router.put("/", (req: Request, res: Response) => {
   return res.status(500).json({
     success: false,
@@ -83,7 +76,6 @@ router.put("/", (req: Request, res: Response) => {
   });
 });
 
-// DELETE /api/v2/courses, body = {coursesId}
 router.delete("/", (req: Request, res: Response) => {
   return res.status(500).json({
     success: false,
